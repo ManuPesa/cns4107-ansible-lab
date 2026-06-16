@@ -1,0 +1,17 @@
+---
+- name: Backup config
+  hosts: iosxe
+  gather_facts: false
+
+  tasks:
+    - name: Backup running config
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
+      register: backup
+
+    - name: Save backup locally
+      copy:
+        content: "{{ backup.stdout[0] }}"
+        dest: "backups/running-config.txt"
+      delegate_to: localhost

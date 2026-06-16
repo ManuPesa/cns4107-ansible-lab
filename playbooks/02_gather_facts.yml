@@ -1,0 +1,16 @@
+---
+- name: Gather facts
+  hosts: iosxe
+  gather_facts: false
+
+  tasks:
+    - name: Get IOS facts
+      cisco.ios.ios_facts:
+        gather_subset: min
+      register: facts
+
+    - name: Save facts locally
+      copy:
+        content: "{{ facts.ansible_facts | to_nice_json }}"
+        dest: "outputs/facts.json"
+      delegate_to: localhost

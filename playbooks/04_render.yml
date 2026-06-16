@@ -1,0 +1,11 @@
+---
+- name: Render config
+  hosts: iosxe
+  gather_facts: false
+
+  tasks:
+    - name: Render template
+      template:
+        src: ../templates/test.j2
+        dest: "rendered/output.cfg"
+      delegate_to: localhost

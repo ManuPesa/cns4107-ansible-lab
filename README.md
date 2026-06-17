@@ -6,9 +6,11 @@ What worked in this project:
 5. Managed to execute Ansible playbooks to automate network configuration.
 6. I also used Jinja2 templates and RESTCONF to deploy configurations dynamically.
 7. I successfully managed to create a local Git repository and pushed the project to GitHub after resolving authentication issues.
+
 What failed in this project:
 1. I confused between using VPN and SSH credentials so I took very long connecting to the sandbox environment.
 2. The SSH connection for some unknown reason terminated hence I was unable to re-establish connection hence some Ansible commands produced wrong outputs.
+
 Lessons learned:
 1. It's important to always verify VPN and SSH connectivity before running automation tasks.
 2. Also important to ensure all required dependencies are installed before starting an automation project.
